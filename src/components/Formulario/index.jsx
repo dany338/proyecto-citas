@@ -6,8 +6,9 @@ const initialState = {
   paciente: '',
   odontologo: '',
   observacion: '',
-  fechaInicio: '',
-  fechaFin: '',
+  fecha: '',
+  horaInicio: '',
+  horaFin: '',
   estado: ''
 };
 
@@ -92,8 +93,23 @@ const Formuario = ({ agregarCita, cita, editar = false, editarCita, ver = false 
           </label>
         ) : (
           <>
-            <input type='number' className='form-control' name='doctor' onChange={handleChange} value={dataForm.odontologo} />
+            <input type='text' className='form-control' name='odontologo' onChange={handleChange} value={dataForm.odontologo} />
             <Error text={errors.odontologo} />
+          </>
+        )}
+      </div>
+      <div className='col-md-6'>
+        <label htmlFor='dish' className='form-label'>
+          Fecha:
+        </label>
+        {ver ? (
+          <label htmlFor='dish' className='form-label'>
+            <b>{' '}{dataForm.fecha}</b>
+          </label>
+        ) : (
+          <>
+            <input type='date' className='form-control' name='fecha' onChange={handleChange} value={dataForm.fecha} />
+            <Error text={errors.fecha} />
           </>
         )}
       </div>
@@ -103,12 +119,12 @@ const Formuario = ({ agregarCita, cita, editar = false, editarCita, ver = false 
         </label>
         {ver ? (
           <label htmlFor='dish' className='form-label'>
-            <b>{' '}{dataForm.fechaInicio}</b>
+            <b>{' '}{dataForm.horaInicio}</b>
           </label>
         ) : (
           <>
-            <input type='text' className='form-control' name='fechaInicio' onChange={handleChange} value={dataForm.fechaInicio} />
-            <Error text={errors.fechaInicio} />
+            <input type='time' className='form-control' name='horaInicio' onChange={handleChange} value={dataForm.horaInicio} />
+            <Error text={errors.horaInicio} />
           </>
         )}
       </div>
@@ -118,12 +134,12 @@ const Formuario = ({ agregarCita, cita, editar = false, editarCita, ver = false 
         </label>
         {ver ? (
           <label htmlFor='dish' className='form-label'>
-            <b>{' '}{dataForm.fechaFin}</b>
+            <b>{' '}{dataForm.horaFin}</b>
           </label>
         ) : (
           <>
-            <input type='text' className='form-control' name='fechaFin' onChange={handleChange} value={dataForm.fechaFin} />
-            <Error text={errors.fechaFin} />
+            <input type='time' className='form-control' name='horaFin' onChange={handleChange} value={dataForm.horaFin} />
+            <Error text={errors.horaFin} />
           </>
         )}
       </div>
@@ -162,17 +178,13 @@ const Formuario = ({ agregarCita, cita, editar = false, editarCita, ver = false 
               <option disabled value=''>
                 Estado de la cita
               </option>
-              {estados.map((estado) => (
-                <option key={estado} value={estado}>
-                  {estado}
-                </option>
-              ))}
+              {estados.map((estado) => <option key={estado} value={estado}>{estado}</option> )}
             </select>
             <Error text={errors.estado} />
           </>
         )}
       </div>
-      <div className='col-6'>
+      <div className='col-12'>
         {!ver ? (
           <button type='submit' className='btn btn-primary'>
             {editar ? 'Editar Cita' : 'Registrar Cita'}

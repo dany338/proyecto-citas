@@ -26,7 +26,7 @@ export const listRoute = [
     ),
   },
   {
-    path: '/agregar-plato',
+    path: '/agregar-cita',
     element: (
       <PrivateRoute>
         <AgregarCita />
@@ -34,7 +34,7 @@ export const listRoute = [
     ),
   },
   {
-    path: '/editar-plato/:editId',
+    path: '/editar-cita/:editId',
     element: (
       <PrivateRoute>
         <EditarCita />
@@ -42,7 +42,7 @@ export const listRoute = [
     ),
   },
   {
-    path: '/ver-plato/:editId',
+    path: '/ver-cita/:editId',
     element: (
       <PrivateRoute>
         <VerCita />

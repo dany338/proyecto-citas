@@ -2,9 +2,7 @@ import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Formuario from "../../../components/Formulario";
-import { obtenerProducto, editarProducto } from "../../../redux/actions/cita";
-
-// import ProductContext from '../../context/products/productContext';
+import { obtenerCita, editarCita } from "../../../redux/actions/cita";
 
 const VerPlato = () => {
   let dispatch = useDispatch();
@@ -18,7 +16,7 @@ const VerPlato = () => {
   // console.log('el params es: ', params);
 
   useEffect(() => {
-    dispatch(obtenerProducto(params.editId));
+    dispatch(obtenerCita(params.editId));
   }, []);
 
   useEffect(() => {
@@ -41,7 +39,7 @@ const VerPlato = () => {
               cita={cita}
               editar={false}
               ver={true}
-              editarCita={(cita) => dispatch(editarProducto(cita))}
+              editarCita={(cita) => dispatch(editarCita(cita))}
             />
           ) : null}
         </div>

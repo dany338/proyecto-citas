@@ -16,7 +16,7 @@ const Login = () => {
             }}
           >
             <div className='position-absolute top-50 start-50 translate-middle'>
-              <img src={Logo} alt='logo' />
+              <img src={Logo} alt='logo' style={{ width: '25%', height: '25%' }}/>
             </div>
           </div>
         </div>
