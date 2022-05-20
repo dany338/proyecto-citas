@@ -1,38 +1,38 @@
 const intialState = {
-    listaProductos: [],
+    listaCitas: [],
     addOk: false,
     editOk: false,
     deleteOk: false,
-    producto: {}
+    cita: {}
 }
 
-export const productReducer = (state = intialState, action) => {
+export const citaReducer = (state = intialState, action) => {
     switch (action.type) {
-        case 'AGREGAR_PRODUCTO':
+        case 'AGREGAR_CITA':
             return {
                 ...state,
                 addOk: action.payload
             }
-        case 'LLENAR_PRODUCTOS':
+        case 'LLENAR_CITAS':
             return {
                 ...state,
                 addOk: false,
                 editOk: false,
                 deleteOk: false,
-                listaProductos: action.payload,
-                producto: {}
+                listaCitas: action.payload,
+                cita: {}
             }
-        case 'OBTENER_PRODUCTO':
+        case 'OBTENER_CITA':
             return {
                 ...state,
-                producto: action.payload
+                cita: action.payload
             }
-        case 'EDITAR_PRODUCTO':
+        case 'EDITAR_CITA':
             return {
                 ...state,
                 editOk: action.payload
             }
-        case 'ELIMINAR_PRODUCTO':
+        case 'ELIMINAR_CITA':
             return {
                 ...state,
                 deleteOk: action.payload

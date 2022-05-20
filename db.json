@@ -17,13 +17,13 @@
     "lista": [
       {
         "id": 3333,
-        "to": "Pedidos",
-        "name": "Pedidos"
+        "to": "Agendas",
+        "name": "Agendas"
       },
       {
         "id": 4444,
-        "to": "Devoluciones",
-        "name": "Devoluciones"
+        "to": "Evoluciones",
+        "name": "Evoluciones"
       }
     ]
   }

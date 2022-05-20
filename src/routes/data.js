@@ -3,9 +3,9 @@ import PrivateRoute from './PrivateRoute';
 
 import Loigin from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
-import AgregarPlato from '../pages/AgregarPlato';
-import EditarPlato from '../pages/EditarPlato';
-import VerPlato from '../pages/VerPlato';
+import AgregarCita from '../pages/Cita/AgregarCita';
+import EditarCita from '../pages/Cita/EditarCita';
+import VerCita from '../pages/Cita/VerCita';
 import ListaUsuarios from '../pages/ListaUsuarios';
 
 export const listRoute = [
@@ -29,7 +29,7 @@ export const listRoute = [
     path: '/agregar-plato',
     element: (
       <PrivateRoute>
-        <AgregarPlato />
+        <AgregarCita />
       </PrivateRoute>
     ),
   },
@@ -37,7 +37,7 @@ export const listRoute = [
     path: '/editar-plato/:editId',
     element: (
       <PrivateRoute>
-        <EditarPlato />
+        <EditarCita />
       </PrivateRoute>
     ),
   },
@@ -45,7 +45,7 @@ export const listRoute = [
     path: '/ver-plato/:editId',
     element: (
       <PrivateRoute>
-        <VerPlato />
+        <VerCita />
       </PrivateRoute>
     ),
   },

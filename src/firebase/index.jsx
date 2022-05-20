@@ -3,12 +3,12 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDoXcJoUzFdRO4c5MDdCpsvfpwW4rKRXtg',
-  authDomain: 'restaurante-g32.firebaseapp.com',
-  projectId: 'restaurante-g32',
-  storageBucket: 'restaurante-g32.appspot.com',
-  messagingSenderId: '611363148422',
-  appId: '1:611363148422:web:d49fb7969e350299e07707',
+  apiKey: "AIzaSyAq5nkHJTh0D3Dj-f1oj462V83cyxxbs2U",
+  authDomain: "contacts-90c22.firebaseapp.com",
+  projectId: "contacts-90c22",
+  storageBucket: "contacts-90c22.appspot.com",
+  messagingSenderId: "465610914144",
+  appId: "1:465610914144:web:7669497f0ed4653e0a8605"
 };
 
 firebase.initializeApp(firebaseConfig);

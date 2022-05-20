@@ -1,38 +1,37 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import ProductContext from '../../context/products/productContext';
 import {
-  obtenerProductos,
-  eliminarProducto,
-} from "../../redux/actions/product";
+  obtenerCitas,
+  eliminarCita,
+} from "../../redux/actions/cita";
 
 import Table from "../../components/Table";
 
 const Dashboard = () => {
   let dispatch = useDispatch();
 
-  const { product } = useSelector((state) => state);
+  const { cita } = useSelector((state) => state);
 
-  const { listaProductos, deleteOk } = product;
+  const { listaCitas, deleteOk } = cita;
 
-  // const { obtenerProductos, eliminarProducto, listaProductos, deleteOk } = useContext(ProductContext);
+  // const { obtenerCitas, eliminarCita, listaCitas, deleteOk } = useContext(ProductContext);
 
   useEffect(() => {
-    dispatch(obtenerProductos());
+    dispatch(obtenerCitas());
   }, []);
 
   useEffect(() => {
     if (deleteOk) {
-      dispatch(obtenerProductos());
+      dispatch(obtenerCitas());
     }
   }, [deleteOk]);
 
   return (
     <>
-      <h1>Productos</h1>
+      <h1>Citas Odontologicas Programadas</h1>
       <Table
-        listaProductos={listaProductos}
-        eliminarProducto={(id) => dispatch(eliminarProducto(id))}
+        listaCitas={listaCitas}
+        eliminarCita={(id) => dispatch(eliminarCita(id))}
       />
     </>
   );

@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const RowTable = ({ info, indice, elimnar }) => {
-  const { id, nombre, precio, categoria } = info
+  const { id, odontologo, paciente, estado } = info
   return (
     <tr>
       <th scope='row'>{indice + 1}</th>
-      <td>{nombre}</td>
-      <td>{categoria}</td>
-      <td>S/ {precio}</td>
+      <td>{odontologo}</td>
+      <td>{paciente}</td>
+      <td>{estado}</td>
       <td className='d-flex justify-content-around'>
         <Link className='btn btn-warning' to={`/editar-plato/${id}`}>
           Editar

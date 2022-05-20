@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Formuario from "../../components/Formulario";
-import { agregarProduto } from "../../redux/actions/product";
+import Formuario from "../../../components/Formulario";
+import { agregarCita } from "../../../redux/actions/cita";
 
 // import ProductContext from '../../context/products/productContext';
 
 const AgregarPlato = () => {
   let dispatch = useDispatch();
 
-  const { product } = useSelector((state) => state);
-  const { addOk } = product;
+  const { cita } = useSelector((state) => state);
+  const { addOk } = cita;
 
-  // const { agregarProduto, addOk } = useContext(ProductContext);
+  // const { agregarCita, addOk } = useContext(ProductContext);
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -24,10 +24,10 @@ const AgregarPlato = () => {
   return (
     <div className="row">
       <div className="col-12">
-        <h5 className="text-primary text-center py-3">Agregar Nuevo Plato</h5>
+        <h5 className="text-primary text-center py-3">Agregar Nueva Cita</h5>
         <div className="shadow-lg p-3 mb-5 bg-body rounded">
           <Formuario
-            agregarProduto={(producto) => dispatch(agregarProduto(producto))}
+            agregarCita={(cita) => dispatch(agregarCita(cita))}
           />
         </div>
       </div>

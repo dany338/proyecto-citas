@@ -3,27 +3,29 @@ import { Link } from 'react-router-dom';
 import Error from './Error';
 
 const initialState = {
-  nombre: '',
-  precio: '',
-  categoria: '',
-  descripcion: '',
+  paciente: '',
+  odontologo: '',
+  observacion: '',
+  fechaInicio: '',
+  fechaFin: '',
+  estado: ''
 };
 
 const errorInit = {
   ...initialState
 }
 
-const categorias = ['Bebidas', 'Cortes', 'Entradas', 'Postres'];
+const estados = ['Asignada', 'Finalizada', 'Cancelada', 'Reagendada'];
 
-const Formuario = ({ agregarProduto, producto, editar = false, editarProducto, ver = false }) => {
+const Formuario = ({ agregarCita, cita, editar = false, editarCita, ver = false }) => {
 
   const [dataForm, setDataForm] = useState(initialState);
   const [errors, setErrors] = useState(errorInit);
 
   useEffect(() => {
     if (editar || ver) {
-      console.log('mira el producto', producto)
-      setDataForm({ ...producto })
+      console.log('mira la cita', cita)
+      setDataForm({ ...cita })
     }
   }, []);
 
@@ -56,9 +58,9 @@ const Formuario = ({ agregarProduto, producto, editar = false, editarProducto, v
     if (isValid()) {
       if (editar) {
         console.log('vamos a editar');
-        editarProducto(dataForm);
+        editarCita(dataForm);
       } else {
-        agregarProduto(dataForm);
+        agregarCita(dataForm);
       }
     }
   }
@@ -67,84 +69,113 @@ const Formuario = ({ agregarProduto, producto, editar = false, editarProducto, v
     <form className='row g-3' onSubmit={handleSubmit}>
       <div className='col-md-6'>
         <label htmlFor='dish' className='form-label'>
-          Nombre del plato
+          Nombre del paciente
         </label>
         {ver ? (
           <label htmlFor='dish' className='form-label'>
-            <b>{' '}{dataForm.nombre}</b>
+            <b>{' '}{dataForm.paciente}</b>
           </label>
         ) : (
           <>
-            <input type='text' className='form-control' name='nombre' onChange={handleChange} value={dataForm.nombre} />
-            <Error text={errors.nombre} />
+            <input type='text' className='form-control' name='paciente' onChange={handleChange} value={dataForm.paciente} />
+            <Error text={errors.paciente} />
           </>
         )}
       </div>
       <div className='col-md-6'>
-        <label htmlFor='price' className='form-label'>
-          precio
+        <label htmlFor='odontologo' className='form-label'>
+          Odontologo
         </label>
-        
         {ver ? (
-          <label htmlFor='price' className='form-label'>
-            <b>{' '}{dataForm.precio}</b>
+          <label htmlFor='odontologo' className='form-label'>
+            <b>{' '}{dataForm.odontologo}</b>
           </label>
         ) : (
           <>
-            <input type='number' className='form-control' name='precio' onChange={handleChange} value={dataForm.precio} />
-            <Error text={errors.precio} />
-          </>
-        )}
-      </div>
-      <div className='col-6'>
-        <label htmlFor='inputAddress' className='form-label'>
-          Categoría
-        </label>
-        {ver ? (
-          <label htmlFor='inputAddress' className='form-label'>
-            <b>{' '}{dataForm.categoria}</b>
-          </label>
-        ) : (
-          <>
-            <select className='form-select' name='categoria' onChange={handleChange} value={dataForm.categoria}>
-              <option disabled value=''>
-                Selecciona una Categoría
-              </option>
-              {categorias.map((categoria) => (
-                <option key={categoria} value={categoria}>
-                  {categoria}
-                </option>
-              ))}
-            </select>
-            <Error text={errors.categoria} />
+            <input type='number' className='form-control' name='doctor' onChange={handleChange} value={dataForm.odontologo} />
+            <Error text={errors.odontologo} />
           </>
         )}
       </div>
       <div className='col-md-6'>
-        <label htmlFor='exampleFormControlTextarea1' className='form-label'>
-          Descripción
+        <label htmlFor='dish' className='form-label'>
+          Hora Inicio:
         </label>
         {ver ? (
-          <label htmlFor='exampleFormControlTextarea1' className='form-label'>
-            <b>{' '}{dataForm.descripcion}</b>
+          <label htmlFor='dish' className='form-label'>
+            <b>{' '}{dataForm.fechaInicio}</b>
+          </label>
+        ) : (
+          <>
+            <input type='text' className='form-control' name='fechaInicio' onChange={handleChange} value={dataForm.fechaInicio} />
+            <Error text={errors.fechaInicio} />
+          </>
+        )}
+      </div>
+      <div className='col-md-6'>
+        <label htmlFor='dish' className='form-label'>
+          Hora Fin:
+        </label>
+        {ver ? (
+          <label htmlFor='dish' className='form-label'>
+            <b>{' '}{dataForm.fechaFin}</b>
+          </label>
+        ) : (
+          <>
+            <input type='text' className='form-control' name='fechaFin' onChange={handleChange} value={dataForm.fechaFin} />
+            <Error text={errors.fechaFin} />
+          </>
+        )}
+      </div>
+      <div className='col-md-6'>
+        <label htmlFor='observacion' className='form-label'>
+          Observación
+        </label>
+        {ver ? (
+          <label htmlFor='observacion' className='form-label'>
+            <b>{' '}{dataForm.observacion}</b>
           </label>
         ) : (
           <>
             <textarea
               className='form-control'
-              id='exampleFormControlTextarea1'
+              id='observacion'
               rows='3'
-              name='descripcion'
-              onChange={handleChange} value={dataForm.descripcion}
+              name='observacion'
+              onChange={handleChange} value={dataForm.observacion}
             ></textarea>
-            <Error text={errors.descripcion} />
+            <Error text={errors.observacion} />
+          </>
+        )}
+      </div>
+      <div className='col-6'>
+        <label htmlFor='inputAddress' className='form-label'>
+          Estado
+        </label>
+        {ver ? (
+          <label htmlFor='inputAddress' className='form-label'>
+            <b>{' '}{dataForm.estado}</b>
+          </label>
+        ) : (
+          <>
+            <select className='form-select' name='estado' onChange={handleChange} value={dataForm.estado}>
+              <option disabled value=''>
+                Estado de la cita
+              </option>
+              {estados.map((estado) => (
+                <option key={estado} value={estado}>
+                  {estado}
+                </option>
+              ))}
+            </select>
+            <Error text={errors.estado} />
           </>
         )}
       </div>
       <div className='col-6'>
         {!ver ? (
           <button type='submit' className='btn btn-primary'>
-            {editar ? 'Editar Plato' : 'Crear Plato'}
+            {editar ? 'Editar Cita' : 'Registrar Cita'}
           </button>
         ) : (
           <Link className='btn btn-primary' to="/dashboard">

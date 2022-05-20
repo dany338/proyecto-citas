@@ -6,7 +6,7 @@ export const dataNavigation = [
   },
   {
     id: 2,
-    to: 'agregar-plato',
-    name: 'Agregar Nuevo Pato',
+    to: 'agregar-cita',
+    name: 'Agregar Nueva Cita',
   },
 ];

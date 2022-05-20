@@ -1,4 +1,4 @@
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/logo.gif";
 import { dataNavigation } from "../../data/dataNavigation";
 import { Link, NavLink } from "react-router-dom";
 const Siderbard = ({ routList }) => {

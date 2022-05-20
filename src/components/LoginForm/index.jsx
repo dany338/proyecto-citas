@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-// import AuthContext from '../../context/auth/authContext';
-
 import { iniciarSesion } from "../../redux/actions/auth";
 
 const LoginForm = () => {
@@ -28,7 +26,7 @@ const LoginForm = () => {
 
   return (
     <form className="border border-1 p-5" onSubmit={handleSubmit}>
-      <h2 className="p-3 text-center">Hola, Bienvenid@s</h2>
+      <h2 className="p-3 text-center">Hola, Bienvenid@s agendamiento de citas odontologicas</h2>
       <div className="mb-3">
         <label htmlFor="email" className="form-label">
           Correo

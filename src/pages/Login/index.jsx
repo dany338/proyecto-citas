@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from '../../assets/images/logo.png';
-import Fondo from '../../assets/images/fondo-mesa.jpg';
+import Logo from '../../assets/images/logo.gif';
+import Fondo from '../../assets/images/fondo-odontologo.gif';
 import style from '../../styles/login.module.css';
 import LoginForm from '../../components/LoginForm';
 
